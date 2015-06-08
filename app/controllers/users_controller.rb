@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
 
-  def index
-    @users = User.all
-  end
-
   def show
+    @entry = current_user.entries.last
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to :back, :alert => "Access denied."
-    end
   end
 
 end

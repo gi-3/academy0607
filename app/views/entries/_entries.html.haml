@@ -1,0 +1,11 @@
+.container
+  .row
+    %h3 Entries
+    .column
+      %table
+        %tbody
+          - @user.entries.all.each do |entry|
+            %tr
+              %td= link_to '■'
+              %td= link_to truncate(entry.content.lines.first, lingth: 10), entry
+

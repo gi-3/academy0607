@@ -1,0 +1,12 @@
+.row
+  .col-md-8
+    %p#notice= notice
+    %p
+    %b Content
+    = simple_format(h(@entry.content))
+    %br
+    - if @entry.user == current_user
+      = link_to 'Edit', edit_entry_path(@entry)
+      = link_to 'destroy', @entry, :method => 'delete'
+  .col-md-4
+    = render 'entries/entries'

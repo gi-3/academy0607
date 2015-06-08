@@ -1,0 +1,12 @@
+.container
+  .row
+    %h3 Users
+    .column
+      %table
+        %tbody
+          - User.all.each do |user|
+            -if user.entries.present?
+              %tr
+                %td= link_to '(写)', user
+                %td= link_to user.name, user
+
